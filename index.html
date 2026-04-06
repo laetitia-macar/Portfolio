@@ -109,7 +109,6 @@ section{position:relative;z-index:2;padding:7rem 0}
 /* hero grid */
 .hero-grid{display:grid;grid-template-columns:1fr auto;gap:0 1.5rem;align-items:center;margin-top:0}
 .hero-left{display:flex;flex-direction:column;min-width:0}
-.hero-notif-wrap{margin-top:2.5rem}
 
 /* Contact box */
 .contact-box{background:var(--sur);border:1px solid var(--border-glow);border-radius:12px;padding:1.6rem 2rem;min-width:230px;display:flex;flex-direction:column;gap:.5rem;position:relative;margin-top:0;margin-left:2.5rem;flex-shrink:0;transition:border-color .3s,box-shadow .3s}
@@ -120,38 +119,11 @@ section{position:relative;z-index:2;padding:7rem 0}
 .contact-box a:hover{color:var(--purple-s);border-color:var(--border-glow)}
 .contact-box .csicon{width:13px;height:13px;opacity:.6}
 
-/* Notification */
-.notif-btn{display:inline-flex;align-items:center;gap:.8rem;background:var(--sur);border:1px solid var(--border-glow);padding:.7rem 1.2rem;cursor:pointer;position:relative;font-family:var(--mon);font-size:.72rem;letter-spacing:.1em;color:var(--text-m);transition:border-color .3s,background .3s;overflow:hidden}
-.notif-btn:hover{border-color:var(--purple-s);background:var(--sur2);color:var(--cream)}
-.notif-envelope{display:flex;align-items:center;color:var(--purple-s);animation:env-blink 2s ease-in-out infinite;flex-shrink:0}
-@keyframes env-blink{0%,100%{opacity:1;filter:drop-shadow(0 0 4px rgba(140,160,255,.8))}45%{opacity:.3;filter:none}55%{opacity:.3;filter:none}}
-.notif-label{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .45s cubic-bezier(.4,0,.2,1),opacity .35s;opacity:0}
-.notif-btn:hover .notif-label{max-width:260px;opacity:1}
-@keyframes ndot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(100,140,255,.7)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(100,140,255,0)}}
-
 /* Contact sidebar */
 .contact-sidebar{display:flex;flex-direction:column;gap:.6rem}
 .contact-sidebar a{display:flex;align-items:center;gap:.7rem;font-family:var(--mon);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-d);text-decoration:none;padding:.5rem .8rem;border:1px solid transparent;transition:all .2s}
 .contact-sidebar a:hover{color:var(--gold-s);border-color:var(--border-gold)}
 .contact-sidebar .csicon{width:14px;height:14px;opacity:.6}
-
-/* Notification modal */
-.notif-overlay{position:fixed;inset:0;background:rgba(7,6,12,.85);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s;backdrop-filter:blur(8px)}
-.notif-overlay.open{opacity:1;pointer-events:all}
-.notif-modal{max-width:520px;width:90%;background:var(--sur2);border:1px solid var(--border-glow);padding:2.5rem;position:relative}
-.notif-modal::before,.notif-modal::after,.notif-modal .mc-br,.notif-modal .mc-bl{content:'';position:absolute;width:18px;height:18px;border-color:var(--gold);border-style:solid;opacity:.4}
-.notif-modal::before{top:0;left:0;border-width:1px 0 0 1px}
-.notif-modal::after{top:0;right:0;border-width:1px 1px 0 0}
-.notif-modal .mc-br{bottom:0;right:0;border-width:0 1px 1px 0}
-.notif-modal .mc-bl{bottom:0;left:0;border-width:0 0 1px 1px}
-.notif-modal-close{position:absolute;top:.8rem;right:1rem;font-family:var(--mon);font-size:.65rem;color:var(--text-d);cursor:pointer;letter-spacing:.1em;transition:color .2s}
-.notif-modal-close:hover{color:var(--gold-s)}
-.notif-modal h3{font-family:var(--cin);font-size:1.1rem;color:var(--cream);letter-spacing:.06em;margin-bottom:1.5rem}
-.notif-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.95rem}
-.notif-row .nk{font-family:var(--mon);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-d)}
-.notif-row .nv{color:var(--text-m)}
-
-
 
 /* ═══ PROJECTS ═══ */
 #projects{background:transparent;padding-top:4rem}
@@ -455,20 +427,6 @@ body.hovering #cursor svg.cstar{animation:cstar-hover .4s ease-in-out infinite a
 
 <!-- BACK TO TOP -->
 <button id="btt" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<!-- NOTIFICATION MODAL -->
-<div class="notif-overlay" id="notif-overlay">
-  <div class="notif-modal">
-    <div class="mc-br"></div><div class="mc-bl"></div>
-    <span class="notif-modal-close" id="notif-close">Fermer ×</span>
-    <h3>Recherche d'alternance · 2026</h3>
-    <div class="notif-row"><span class="nk">Domaines</span><span class="nv">UX/UI design · Développement web · Gestion de projet · SEO.</span></div>
-    <div class="notif-row"><span class="nk">Durée</span><span class="nv">1 an · à partir du 1er octobre 2026.</span></div>
-    <div class="notif-row"><span class="nk">Localisation</span><span class="nv">Préférentiellement Alsace / Lorraine · ouverte à toute la France.</span></div>
-    <div class="notif-row"><span class="nk">Contrat</span><span class="nv">Alternance · Master CAWEB · Université de Strasbourg</span></div>
-    <div class="notif-row" style="border:none"><span class="nk">Contact</span><span class="nv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90fdf1f3f1e2fcf1f5e4f9e4f9f1d0f7fdf1f9fcbef3fffd">[email&#160;protected]</a></span></div>
-  </div>
-</div>
 
 <!-- PROJECT MODAL -->
 <div class="proj-overlay" id="proj-overlay">
@@ -878,15 +836,6 @@ setInterval(function(){
   rw.style.opacity='0'; rw.style.transform='translateY(10px)';
   setTimeout(function(){ rw.textContent=words[wi]; rw.style.opacity='1'; rw.style.transform='translateY(0)'; },420);
 },3000);
-
-/* ── NOTIFICATION MODAL ─────────────────────────────── */
-var nov=document.getElementById('notif-overlay'), nclose=document.getElementById('notif-close'), nbtn=document.getElementById('notif-btn');
-function openN(){nov.classList.add('open');}
-function closeN(){nov.classList.remove('open');}
-if(nbtn) nbtn.addEventListener('click',openN);
-nclose.addEventListener('click',closeN);
-nov.addEventListener('click',function(e){if(e.target===nov)closeN();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeN();closePO();}});
 
 /* ── PROJECT MODAL ──────────────────────────────────── */
 var projData=[
