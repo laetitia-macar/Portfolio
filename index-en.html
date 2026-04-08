@@ -388,6 +388,8 @@ body.hovering #cursor svg.cstar{animation:cstar-hover .4s ease-in-out infinite a
 
 .lang-switcher{font-family:var(--mon);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-m);text-decoration:none;border:1px solid var(--border-glow);padding:.35rem .8rem;border-radius:2rem;transition:color .2s,border-color .2s,background .2s;white-space:nowrap}
 .lang-switcher:hover{color:var(--purple-s);border-color:var(--purple-s);background:var(--purple-dim)}
+.lang-switcher-mobile{display:none}
+@media(max-width:900px){.lang-switcher-mobile{display:inline-flex}}
 </style>
 </head>
 <body>
@@ -417,6 +419,7 @@ body.hovering #cursor svg.cstar{animation:cstar-hover .4s ease-in-out infinite a
     <a href="#contact">Contact</a>
     <a class="lang-switcher" href="index.html">FR&nbsp;/&nbsp;<strong>EN</strong></a>
   </nav>
+   <a class="lang-switcher lang-switcher-mobile" href="index.html">FR&nbsp;/&nbsp;<strong>EN</strong></a>
   <button id="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -427,7 +430,6 @@ body.hovering #cursor svg.cstar{animation:cstar-hover .4s ease-in-out infinite a
   <a href="#parcours-pro"><span>Background</span></a>
   <a href="#certifs"><span>Certifications</span></a>
   <a href="#contact"><span>Contact</span></a>
-  <a class="lang-switcher" href="index.html" style="border:none;border-bottom:1px solid var(--border);border-radius:0;padding:.9rem 0"><span>FR / EN</span></a>
 </nav>
 
 <!-- BACK TO TOP -->
