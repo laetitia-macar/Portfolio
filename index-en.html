@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portfolio | Laetitia Macar</title>
+<meta name="description" content="Portfolio of Laetitia Macar, web designer and developer in the CAWEB Master's programme at the University of Strasbourg. Seeking a work-study placement for 2026–2027."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 L17.5 14.5 L30 16 L17.5 17.5 L16 30 L14.5 17.5 L2 16 L14.5 14.5 Z' fill='%23a8b8ff'/%3E%3C/svg%3E"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Portfolio | Laetitia Macar"/>
+<meta property="og:description" content="Portfolio of Laetitia Macar, web designer and developer in the CAWEB Master's programme at the University of Strasbourg. Seeking a work-study placement for 2026–2027."/>
+<meta property="og:image" content="https://zupimages.net/up/26/14/uit0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07060c;--bg2:#0e0c15;--sur:#13101c;--sur2:#1a1628;
+  --border:rgba(140,160,255,.2);--border-glow:rgba(140,160,255,.45);--border-gold:rgba(140,160,255,.5);
+  --purple:#7b8ff5;--purple-s:#c0caff;--purple-dim:rgba(123,143,245,.15);
+  --cream:#f2ece8;--text:#f0ecfa;--text-m:#ccc6e0;--text-d:#9a90b0;
+  --gold:#8898f8;--gold-s:#d0d8ff;
+  --cin:'Cinzel',serif;--cind:'Cinzel Decorative','Cinzel',serif;--gar:'EB Garamond',Georgia,serif;--mon:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--gar);font-size:18px;line-height:1.75;overflow-x:hidden;cursor:none}
+
+/* ═══ CURSOR ═══ */
+#cursor{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cursor svg{animation:rock 6s ease-in-out infinite}
+@keyframes rock{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+#cursor-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+
+/* ═══ STARFIELD ═══ */
+#sf{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.65}
+
+/* ═══ HEADER ═══ */
+#header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid var(--border);background:rgba(7,6,12,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+#header.scrolled{background:rgba(7,6,12,.88);border-color:rgba(130,150,255,.22)}
+.header-logo{font-family:var(--cin);font-size:1rem;font-weight:600;letter-spacing:.12em;color:var(--cream);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.header-logo span{color:var(--gold)}
+nav{display:flex;gap:2rem;align-items:center}
+nav a{font-family:var(--mon);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-m);text-decoration:none;transition:color .2s;position:relative}
+nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .25s}
+nav a:hover{color:var(--gold-s)}
+nav a:hover::after{width:100%}
+
+/* ═══ BACK TO TOP ═══ */
+#btt{position:fixed;bottom:2rem;right:2rem;z-index:200;width:64px;height:64px;border-radius:50%;background:var(--sur2);border:2px solid var(--border-glow);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s,transform .3s,box-shadow .3s;font-size:1.4rem;color:var(--purple-s);box-shadow:0 0 20px rgba(100,120,240,.15)}
+#btt.visible{opacity:1;box-shadow:0 0 28px rgba(100,120,240,.35)}
+#btt:hover{transform:translateY(-4px) scale(1.1);border-color:rgba(130,150,255,.8);color:var(--purple-s);box-shadow:0 4px 36px rgba(100,120,240,.5)}
+
+/* ═══ LAYOUT ═══ */
+.wrap{max-width:1280px;margin:0 auto;padding:0 4rem;position:relative;z-index:2}
+section{position:relative;z-index:2;padding:7rem 0}
+.sec-label{font-family:var(--mon);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text-d);margin-bottom:.8rem}
+.sec-title{font-family:var(--cin);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:var(--cream);letter-spacing:.05em;line-height:1.05;margin-bottom:.8rem}
+.sec-subtitle{font-family:var(--gar);font-style:italic;font-size:1.15rem;color:var(--text-m);margin-bottom:3rem}
+.sec-rule{width:48px;height:1px;background:var(--gold);margin:1rem 0 3rem;opacity:.6}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rev.in{opacity:1;transform:none}
+
+/* ═══ VERTICAL MOON DIVIDER ═══ */
+.moon-divider-vert{display:flex;flex-direction:column;align-items:center;padding:.5rem 0;position:relative;z-index:2;gap:0}
+.mdv-line{width:1px;height:80px;background:linear-gradient(to bottom,transparent,rgba(140,165,255,.4) 50%,rgba(140,165,255,.4));flex-shrink:0}
+.mdv-line:last-child{background:linear-gradient(to bottom,rgba(140,165,255,.4),rgba(140,165,255,.4) 50%,transparent)}
+.mdv-moon{position:relative;width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin:12px 0}
+.mdv-moon-inner{position:absolute;inset:0;border-radius:50%;background:rgba(170,190,255,.12);box-shadow:0 0 16px rgba(140,165,255,.35),0 0 5px rgba(140,165,255,.6)}
+.mdv-moon-inner::after{content:'';position:absolute;top:3px;left:8px;width:26px;height:26px;border-radius:50%;background:var(--bg)}
+.mdv-star{position:absolute;font-size:.5rem;color:rgba(170,190,255,.55);z-index:1;filter:drop-shadow(0 0 3px rgba(140,165,255,.6))}
+.mdv-star.top{top:-14px;left:50%;transform:translateX(-50%)}
+.mdv-star.bot{bottom:-14px;left:50%;transform:translateX(-50%)}
+
+/* ═══ HERO ═══ */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:4rem;padding-bottom:3rem}
+.hero-tagline{font-family:var(--cin);font-size:clamp(2.5rem,4.2vw,3.8rem);font-weight:700;line-height:1.2;letter-spacing:.04em;color:var(--purple-s);text-transform:uppercase;display:block;height:3.2em;position:relative;margin-bottom:0}
+.hero-static{display:block}
+#rotating-word{position:absolute;left:0;top:1.2em;white-space:nowrap;display:block}
+@media(max-width:700px){
+  #hero{padding-top:7rem}
+  .hero-tagline{height:auto;padding-bottom:.5em;font-size:clamp(2.2rem,9vw,3rem)}
+  #rotating-word{position:static;white-space:normal;word-break:break-word;font-size:inherit}
+  .hero-grid{display:flex;flex-direction:column}
+  .hero-left{width:100%;display:flex;flex-direction:column}
+  .hero-intro{max-width:100%;width:100%;box-sizing:border-box}
+}
+.hero-tagline .word-a{color:var(--purple-s)} .hero-static{color:var(--purple-s)}
+.hero-tagline .word-b{color:var(--gold-s)}
+#rotating-word{color:#ffffff;text-shadow:0 0 12px rgba(168,184,255,.9),0 0 28px rgba(140,160,255,.55),0 0 50px rgba(120,140,255,.3)}
+.hero-intro{font-family:var(--gar);font-size:1.05rem;color:var(--text-m);max-width:960px;margin-top:1.4rem;margin-bottom:1rem;line-height:1.75;background:var(--sur);border:1px solid var(--border-glow);border-radius:4px;padding:0;transition:border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.hero-intro::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(140,160,255,.6) 30%,rgba(140,160,255,.9) 50%,rgba(140,160,255,.6) 70%,transparent)}
+.hero-intro::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(140,160,255,.3),transparent)}
+.hero-intro:hover{border-color:rgba(140,160,255,.6);box-shadow:0 0 32px rgba(123,143,245,.18),0 0 0 1px rgba(140,160,255,.12)}
+.hero-intro-inner{padding:2rem 2.4rem}
+.hero-intro-title{font-family:var(--cin);font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--purple-s);margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem}
+.hero-intro-title::before{content:'✦';font-size:.5rem;opacity:.7}
+.hero-intro-body{display:flex;flex-direction:column;gap:.6rem}
+.hero-intro-lead{color:var(--text);font-size:1.15rem;font-weight:500;line-height:1.7}
+.hero-intro-divider{width:32px;height:1px;background:rgba(140,160,255,.3);margin:.2rem 0}
+.hero-intro-row{display:flex;align-items:baseline;gap:.7rem;font-size:1rem}
+.hero-intro-icon{color:var(--purple-s);flex-shrink:0;font-size:.8rem;opacity:.8}
+.hero-intro-text{color:var(--text-m)}
+.hero-intro s{color:var(--text-d);text-decoration-color:var(--text-d)}
+.hero-intro strong{color:var(--text);font-weight:500}
+/* hero grid */
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:0 1.5rem;align-items:center;margin-top:0}
+.hero-left{display:flex;flex-direction:column;min-width:0}
+
+/* Contact box */
+.contact-box{background:var(--sur);border:1px solid var(--border-glow);border-radius:12px;padding:1.6rem 2rem;min-width:230px;display:flex;flex-direction:column;gap:.5rem;position:relative;margin-top:0;margin-left:2.5rem;flex-shrink:0;transition:border-color .3s,box-shadow .3s}
+.contact-box-title{font-family:var(--cin);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);margin-bottom:.4rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.contact-box a{display:flex;align-items:center;gap:.7rem;font-family:var(--mon);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-m);text-decoration:none;padding:.4rem .5rem;border:1px solid transparent;transition:all .2s}
+.contact-box:hover{border-color:rgba(140,160,255,.6);box-shadow:0 0 32px rgba(123,143,245,.18),0 0 0 1px rgba(140,160,255,.12)}
+.contact-box a{border-radius:6px}
+.contact-box a:hover{color:var(--purple-s);border-color:var(--border-glow)}
+.contact-box .csicon{width:13px;height:13px;opacity:.6}
+
+/* Contact sidebar */
+.contact-sidebar{display:flex;flex-direction:column;gap:.6rem}
+.contact-sidebar a{display:flex;align-items:center;gap:.7rem;font-family:var(--mon);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-d);text-decoration:none;padding:.5rem .8rem;border:1px solid transparent;transition:all .2s}
+.contact-sidebar a:hover{color:var(--gold-s);border-color:var(--border-gold)}
+.contact-sidebar .csicon{width:14px;height:14px;opacity:.6}
+
+/* ═══ PROJECTS ═══ */
+#projects{background:transparent;padding-top:4rem}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:1rem;align-items:stretch}
+.proj-card{background:var(--sur);border:1px solid var(--border);cursor:pointer;transition:border-color .25s,transform .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;height:100%}
+.proj-card:hover{border-color:rgba(130,150,255,.7);transform:translateY(-6px);box-shadow:0 8px 40px rgba(100,120,240,.25),0 0 0 1px rgba(130,150,255,.2)}
+.proj-card-img{height:260px;background:var(--sur2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.proj-card-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.proj-card-img-placeholder{font-family:var(--mon);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-d)}
+/* reveal bar at bottom of card */
+.proj-card-reveal{display:flex;align-items:center;justify-content:center;padding:.6rem;border-top:1px solid var(--border);background:rgba(7,6,12,.5)}
+.proj-card-reveal span{font-family:var(--mon);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(140,160,255,.85);animation:blk 2.5s ease-in-out infinite}
+.proj-card-body{padding:1.2rem 1.6rem;flex:1}
+.proj-card-num{font-family:var(--mon);font-size:.65rem;color:var(--text-d);letter-spacing:.14em;margin-bottom:.35rem}
+.proj-card-title{font-family:var(--cin);font-size:1rem;color:var(--cream);letter-spacing:.05em;margin-bottom:.7rem;line-height:1.2}
+.proj-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.proj-tag{font-family:var(--mon);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-s);border:1px solid rgba(100,120,240,.28);padding:.25rem .7rem;border-radius:2rem}
+/* project modal */
+.proj-overlay{position:fixed;inset:0;background:rgba(7,6,12,.9);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s;backdrop-filter:blur(8px)}
+.proj-overlay.open{opacity:1;pointer-events:all}
+.proj-modal{max-width:740px;width:92%;background:var(--sur);border:1px solid var(--border-glow);position:relative;max-height:92vh;overflow-y:auto}
+.proj-modal-close{position:absolute;top:.7rem;right:.7rem;font-family:var(--mon);font-size:.65rem;color:var(--cream);cursor:pointer;letter-spacing:.1em;z-index:10;transition:color .2s,background .2s;background:rgba(7,6,12,.75);border:1px solid rgba(140,160,255,.35);padding:.3rem .7rem;border-radius:2rem;backdrop-filter:blur(6px)}
+.proj-modal-close:hover{color:#ffffff;background:rgba(123,143,245,.3);border-color:var(--purple-s)}
+/* carousel */
+.proj-carousel{position:relative;background:var(--sur2);border-bottom:1px solid var(--border);overflow:hidden;height:380px}
+@media(max-width:700px){.proj-overlay{align-items:flex-end}.proj-modal{width:100%;max-height:90vh;border-radius:0}.proj-carousel{height:56vw}.proj-carousel-track{height:56vw}.proj-carousel-slide{width:100%;min-width:100%;height:56vw;flex-shrink:0;overflow:hidden}.proj-carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}.proj-carousel-btn{width:28px;height:28px;font-size:.8rem}.proj-modal-content{padding:1rem 1.2rem}}
+.proj-carousel-track{display:flex;height:100%;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform}
+.proj-carousel-slide{width:100%;min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.proj-carousel-slide img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.proj-carousel-slide video{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:#000}
+.proj-carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(7,6,12,.7);border:1px solid var(--border-glow);color:var(--purple-s);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background .2s,color .2s;z-index:2;border-radius:2px}
+.proj-carousel-btn:hover{background:rgba(123,143,245,.2);color:var(--cream)}
+.proj-carousel-btn.prev{left:.7rem}
+.proj-carousel-btn.next{right:.7rem}
+.proj-carousel-dots{position:absolute;bottom:.6rem;left:0;right:0;display:flex;justify-content:center;gap:.4rem}
+.proj-carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(140,160,255,.3);cursor:pointer;transition:background .2s}
+.proj-carousel-dot.active{background:var(--purple-s)}
+.proj-modal-content{padding:2rem 2.5rem}
+.proj-modal-num{font-family:var(--mon);font-size:.65rem;color:var(--text-d);letter-spacing:.14em;margin-bottom:.4rem}
+.proj-modal-title{font-family:var(--cin);font-size:1.4rem;color:var(--cream);letter-spacing:.06em;margin-bottom:1rem}
+.proj-modal-text{font-family:var(--gar);font-size:1.05rem;color:var(--text-m);line-height:1.8;margin-bottom:1.5rem;white-space:pre-line}
+
+/* ═══ QUOTE MILKY WAY ═══ */
+.quote-section::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 20% 50%,rgba(80,100,255,.08) 0%,transparent 70%),
+  radial-gradient(ellipse 60% 40% at 75% 40%,rgba(100,120,255,.06) 0%,transparent 60%),
+  radial-gradient(ellipse 100% 80% at 50% 50%,rgba(20,15,40,.85) 0%,transparent 100%);
+  pointer-events:none;z-index:0}
+.quote-section>.wrap{position:relative;z-index:1}
+/* milky way star canvas */
+.quote-mw{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.6}
+
+/* ═══ QUOTE ═══ */
+.quote-section{position:relative;z-index:2;padding:5rem 0;border-top:1px solid rgba(130,150,255,.15);border-bottom:1px solid rgba(130,150,255,.15);overflow:hidden}
+.quote-inner{max-width:720px;margin:0 auto;text-align:center}
+blockquote{font-family:var(--gar);font-size:clamp(1.3rem,2.5vw,2rem);font-style:italic;line-height:1.55;color:var(--text);position:relative;padding:0 4rem}
+blockquote::before{content:'\201C';position:absolute;left:0;top:-.15em;font-size:3.5em;color:rgba(130,150,255,.15);font-style:normal;line-height:1}
+blockquote::after{content:"”";position:absolute;right:0;bottom:-.35em;font-size:3.5em;color:rgba(130,150,255,.15);font-style:normal;line-height:1;font-family:var(--gar)}
+cite{display:block;font-family:var(--mon);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-d);margin-top:1.5rem;font-style:normal}
+
+/* ═══ MOBILE CANVAS WRAPPERS ═══ */
+.desktop-only{display:block}
+.mobile-only{display:none}
+
+/* ── Parcours mobile cards ── */
+.parc-card{background:var(--sur);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .25s,box-shadow .25s}
+.parc-card:hover{border-color:var(--border-glow);box-shadow:0 4px 24px rgba(123,143,245,.15)}
+.parc-card-top{display:flex;align-items:center;gap:.8rem}
+.parc-card-dot{width:8px;height:8px;border-radius:50%;background:var(--purple-s);flex-shrink:0;box-shadow:0 0 8px rgba(123,143,245,.7)}
+.parc-card-dot.main{width:10px;height:10px;background:var(--gold-s);box-shadow:0 0 10px rgba(168,184,255,.8)}
+.parc-card-label{font-family:var(--cin);font-size:.92rem;color:var(--cream);letter-spacing:.06em;flex:1}
+.parc-card-year{font-family:var(--mon);font-size:.62rem;color:var(--purple-s);letter-spacing:.12em}
+.parc-card-sub{font-family:var(--mon);font-size:.62rem;color:var(--text-d);letter-spacing:.08em;font-style:italic}
+.parc-card-desc{font-family:var(--gar);font-size:.92rem;color:var(--text-m);line-height:1.6;margin-top:.3rem}
+
+
+
+
+/* ── MOBILE HAMBURGER ── */
+#mob-menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:.5rem;background:none;border:none;position:relative;z-index:101;flex-shrink:0}
+#mob-menu-btn span{display:block;width:24px;height:2px;background:#ffffff;transition:transform .3s,opacity .3s;border-radius:1px}
+#mob-menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#mob-menu-btn.open span:nth-child(2){opacity:0}
+#mob-menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── MOBILE DROPDOWN MENU ── */
+#mob-nav{position:fixed;top:0;left:0;right:0;background:rgba(7,6,12,.97);border-bottom:1px solid var(--border-glow);z-index:99;padding:5rem 2rem 2rem;display:flex;flex-direction:column;gap:.2rem;transform:translateY(-110%);transition:transform .4s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(16px)}
+#mob-nav.open{transform:translateY(0)}
+#mob-nav a{font-family:var(--cin);font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-m);text-decoration:none;padding:.9rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;transition:color .2s}
+#mob-nav a span{white-space:nowrap}
+#mob-nav a::after{content:''}
+#mob-nav a:hover{color:var(--purple-s)}
+#mob-nav a:last-child{border-bottom:none}
+
+@media(max-width:700px){
+  #swrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  #sc{min-width:700px}
+  .desktop-only{display:none!important}
+  .mobile-only{display:flex!important;flex-direction:column;gap:1rem}
+  .ctip{position:fixed;left:50%!important;top:50%!important;transform:translate(-50%,-50%);max-width:80vw}
+  #header{padding:1rem 1.5rem}
+  .wrap{padding:0 1.5rem}
+  #mob-menu-btn{display:flex}
+  nav{display:none}
+}
+@media(min-width:701px){
+  #mob-menu-btn{display:none}
+  #mob-nav{display:none!important}
+}
+.skill-card{background:var(--sur);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.skill-card:hover{border-color:var(--border-glow);box-shadow:0 4px 24px rgba(123,143,245,.15)}
+.skill-card-header{display:flex;align-items:center;gap:.8rem;padding:1.2rem 1.5rem;cursor:pointer;user-select:none}
+.skill-card-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.skill-card-name{font-family:var(--cin);font-size:.9rem;letter-spacing:.08em;color:var(--cream);flex:1}
+.skill-card-arrow{font-family:var(--mon);font-size:.7rem;color:var(--text-d);transition:transform .3s}
+.skill-card.open .skill-card-arrow{transform:rotate(180deg)}
+.skill-card-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.skill-card.open .skill-card-body{max-height:300px}
+.skill-card-sats{padding:.2rem 1.5rem 1.2rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-sat{font-family:var(--mon);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-s);border:1px solid rgba(100,130,255,.3);padding:.25rem .7rem;border-radius:2rem}
+
+/* ═══ HARD SKILLS (solar) ═══ */
+#skills{background:transparent}
+.solar-hint{font-family:var(--mon);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-d);margin-bottom:2rem}
+#swrap{position:relative;width:100%;max-width:960px;margin:0 auto}
+#sc{display:block;width:100%;cursor:crosshair}
+.stip{position:absolute;background:var(--sur2);border:1px solid var(--border-gold);padding:1rem 1.4rem;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10;min-width:180px;max-width:240px;transform:translate(-50%,-115%)}
+.stip-name{font-family:var(--cin);font-size:.85rem;letter-spacing:.07em;color:var(--cream);margin-bottom:.4rem}
+.stip-desc{font-family:var(--gar);font-size:.9rem;color:var(--text-m);line-height:1.5}
+
+/* ═══ SOFT SKILLS (tarot) ═══ */
+#softskills{background:transparent}
+.tarot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:1rem;perspective:1400px}
+.tc{height:480px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.4,0,.2,1),box-shadow .3s}
+.tc:not(.fl):hover{box-shadow:0 10px 48px rgba(100,120,240,.28),0 0 0 1px rgba(140,160,255,.25)}
+.tc:not(.fl):hover .tc-back{border-color:rgba(140,160,255,.55)}
+.tc:not(.fl):hover .tc-back::after{opacity:1;background:linear-gradient(90deg,transparent,rgba(120,145,255,.55),transparent)}
+.tc-back::after{transition:opacity .3s}
+
+.tc.fl{transform:rotateY(180deg)}
+.tc-back,.tc-front{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+/* back face */
+.tc-back{background:var(--sur);border:1px solid rgba(130,150,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0;overflow:hidden}
+.tc-back-img{position:absolute;top:0;left:0;right:0;bottom:2.6rem;display:flex;align-items:stretch;justify-content:stretch}
+.tc-back-img-zone{width:100%;height:100%;border:none;display:flex;align-items:center;justify-content:center;background:transparent;padding:5px}
+.tc-back-img-zone img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.tc-back::before{content:'';position:absolute;top:6px;left:6px;right:6px;bottom:calc(2.6rem + 6px);border:1px solid rgba(130,150,255,.08);pointer-events:none;z-index:1}
+.tc-back::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(100,120,240,.4),transparent)}
+@keyframes blk{0%,100%{opacity:.6}50%{opacity:1}}
+.tc-click{position:absolute;bottom:0;left:0;right:0;height:2.6rem;display:flex;align-items:center;justify-content:center;font-family:var(--mon);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(140,160,255,.9);animation:blk 2.5s ease-in-out infinite;background:rgba(7,6,12,.88);border-top:1px solid rgba(130,150,255,.15);z-index:5}
+@media(max-width:700px){.tc-back-img{bottom:2.6rem}}
+.tc-bname{display:none}
+.tc-front{transform:rotateY(180deg);background:var(--sur2);border:1px solid var(--border-gold);display:flex;flex-direction:column;padding:2.2rem 2rem 0 2rem;overflow:hidden}
+.tc-front::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.tc-rom{font-family:var(--cin);font-size:.62rem;letter-spacing:.22em;color:var(--text-d);margin-bottom:1rem}
+.tc-arc{font-family:var(--cin);font-size:1.3rem;font-weight:600;color:var(--gold-s);letter-spacing:.07em;margin-bottom:.3rem;line-height:1.15}
+.tc-sub{font-family:var(--gar);font-style:italic;font-size:.95rem;color:var(--text-m);margin-bottom:1.4rem;padding-bottom:1.4rem;border-bottom:1px solid rgba(130,150,255,.1)}
+.tc-desc{font-family:var(--gar);font-size:1rem;color:var(--text-m);line-height:1.7;flex:1}
+.tc-hint{display:none}
+
+/* ═══ PARCOURS LIST (mobile) ═══ */
+.parc-list{display:flex;flex-direction:column;gap:1rem}
+.parc-item{display:flex;gap:1.2rem;align-items:flex-start;padding:.8rem 0;border-bottom:1px solid var(--border)}
+.parc-item:last-child{border-bottom:none}
+.parc-star{font-size:1.4rem;flex-shrink:0;color:var(--purple-s);filter:drop-shadow(0 0 6px rgba(123,143,245,.7))}
+.parc-info{}
+.parc-label{font-family:var(--cin);font-size:.9rem;color:var(--cream);letter-spacing:.06em;margin-bottom:.15rem}
+.parc-year{font-family:var(--mon);font-size:.65rem;color:var(--purple-s);letter-spacing:.1em;margin-bottom:.3rem}
+.parc-desc{font-family:var(--gar);font-size:.9rem;color:var(--text-m);line-height:1.55}
+
+/* ═══ CONSTELLATION ═══ */
+.const-canvas-wrap{position:relative;overflow:visible;margin:0 -60px}
+canvas.const-c{display:block;width:100%}
+
+/* ═══ CERTIFICATIONS ═══ */
+#certifs{background:transparent}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem}
+.cert-card{background:var(--sur);border:1px solid var(--border);padding:2rem 1.8rem;transition:border-color .25s,box-shadow .25s,transform .25s;position:relative;overflow:hidden;cursor:default}
+.cert-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(123,143,245,.18),transparent 65%);opacity:0;transition:opacity .3s}
+.cert-card:hover{border-color:rgba(140,160,255,.65);box-shadow:0 6px 36px rgba(123,143,245,.22),0 0 0 1px rgba(140,160,255,.15);transform:translateY(-4px)}
+.cert-card:hover::after{opacity:1}
+.cert-card.coming{opacity:.45}
+.cert-icon{font-family:var(--mon);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-d);margin-bottom:1rem}
+.cert-name{font-family:var(--cin);font-size:1rem;font-weight:600;color:var(--cream);letter-spacing:.06em;margin-bottom:.3rem}
+.cert-full{font-family:var(--gar);font-style:italic;font-size:.9rem;color:var(--text-m);margin-bottom:.8rem}
+.cert-score{font-family:var(--mon);font-size:.75rem;color:var(--gold-s);letter-spacing:.1em;margin-bottom:.3rem}
+.cert-year{font-family:var(--mon);font-size:.65rem;color:var(--text-d);letter-spacing:.1em;margin-bottom:.3rem}
+.cert-code{font-family:var(--mon);font-size:.6rem;color:var(--text-d);letter-spacing:.08em;margin-bottom:.8rem;word-break:break-all}
+.cert-desc{font-family:var(--gar);font-size:.88rem;color:var(--text-m);line-height:1.55}
+
+/* ═══ CERT LOCK ═══ */
+.cert-card.coming{opacity:.6;position:relative}
+.cert-card.coming::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(7,6,12,.25),rgba(7,6,12,.15));pointer-events:none}
+.cert-lock{position:absolute;top:1.2rem;right:1.2rem;z-index:2;opacity:.45;color:var(--text-m)}
+.cert-lock svg{width:22px;height:22px;filter:drop-shadow(0 0 4px rgba(140,160,255,.3))}
+
+/* ═══ CONTACT ═══ */
+#contact{background:transparent}
+.contact-heading{font-family:var(--cin);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;letter-spacing:.07em;color:#ffffff;line-height:.95;margin-bottom:2rem;text-transform:uppercase;text-shadow:0 0 14px rgba(220,230,255,.9),0 0 32px rgba(180,200,255,.55),0 0 60px rgba(140,160,255,.3)}
+.contact-heading span{color:var(--purple-s);text-shadow:none}
+.contact-sub{font-family:var(--gar);font-size:1.1rem;color:var(--text-m);max-width:500px;margin-bottom:1.5rem;line-height:1.8}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--cin);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#07060c;background:var(--purple-s);padding:1rem 2.2rem;border:2px solid transparent;border-radius:4px;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s;text-decoration:none;box-shadow:0 0 18px rgba(123,143,245,.35)}
+.btn:hover{background:#ffffff;transform:translateY(-3px);box-shadow:0 4px 32px rgba(140,160,255,.55)}
+.btn-ghost{background:rgba(100,120,240,.08);color:var(--purple-s);border:2px solid rgba(140,160,255,.5);border-radius:4px;box-shadow:0 0 14px rgba(100,120,240,.15)}
+.btn-ghost:hover{border-color:rgba(140,160,255,.9);color:#ffffff;background:rgba(123,143,245,.08);transform:translateY(-3px);box-shadow:0 4px 28px rgba(123,143,245,.35)}
+
+/* ═══ CONTACT BOTTOM LAYOUT ═══ */
+.contact-bottom{display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.contact-left{flex:1;min-width:280px}
+.contact-social-box{background:var(--sur);border:1px solid var(--border-glow);border-radius:12px;padding:1.4rem 1.8rem;display:flex;flex-direction:column;gap:.45rem;flex-shrink:0;transition:border-color .3s,box-shadow .3s;min-width:200px;align-self:flex-start}
+.contact-social-box:hover{border-color:rgba(140,160,255,.6);box-shadow:0 0 28px rgba(100,120,240,.18)}
+.contact-social-box .contact-box-title{font-family:var(--cin);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:.3rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.contact-social-box a{display:flex;align-items:center;gap:.6rem;font-family:var(--mon);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-m);text-decoration:none;padding:.35rem .4rem;border:1px solid transparent;border-radius:5px;transition:all .2s}
+.contact-social-box a:hover{color:var(--purple-s);border-color:var(--border-glow)}
+.contact-social-box .csicon{width:13px;height:13px;opacity:.6}
+
+/* ═══ FOOTER ═══ */
+footer{position:relative;z-index:2;padding:2rem 0;border-top:1px solid var(--border);background:var(--sur)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;font-family:var(--mon);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-d)}
+
+/* ═══ CURSOR STAR ═══ */
+#cursor{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cursor-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:opacity .15s}
+#cursor svg.cstar{animation:cstar-idle 3s ease-in-out infinite}
+@keyframes cstar-idle{0%,100%{transform:rotate(0deg) scale(1);opacity:.85}50%{transform:rotate(22deg) scale(1.05);opacity:1}}
+body.hovering #cursor svg.cstar{animation:cstar-hover .4s ease-in-out infinite alternate}
+@keyframes cstar-hover{from{transform:scale(1.1);filter:drop-shadow(0 0 6px rgba(170,190,255,.9))}to{transform:scale(1.3) rotate(15deg);filter:drop-shadow(0 0 14px rgba(200,215,255,1))}}
+
+/* ═══ SKILL PLANET CARDS ═══ */
+.skill-planet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:1rem}
+@media(max-width:900px){.skill-planet-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.skill-planet-grid{grid-template-columns:1fr}}
+.skill-planet-card{background:var(--sur);border:1px solid var(--border);padding:2rem;transition:border-color .25s,box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.skill-planet-card:hover{border-color:rgba(140,160,255,.6);transform:translateY(-5px);box-shadow:0 8px 40px rgba(100,120,240,.2)}
+.skill-planet-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% -10%,rgba(123,143,245,.12),transparent 65%);opacity:0;transition:opacity .3s}
+.skill-planet-card:hover::after{opacity:1}
+.spc-diagram{width:100%;height:140px;display:block;margin-bottom:1.4rem}
+.spc-name{font-family:var(--cin);font-size:.88rem;font-weight:600;color:var(--cream);letter-spacing:.07em;margin-bottom:1rem}
+.spc-moons{display:flex;flex-wrap:wrap;gap:.4rem}
+.spc-moon{font-family:var(--mon);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-s);border:1px solid rgba(100,120,240,.28);padding:.22rem .6rem;border-radius:2rem}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr auto;}
+  .contact-box{min-width:unset;margin-left:0}
+    .proj-grid,.tarot-grid,.cert-grid{grid-template-columns:1fr 1fr}
+  #header{padding:1rem 1.5rem}
+  .wrap{padding:0 1.5rem}
+  #mob-menu-btn{display:flex}
+  nav{display:none}
+}
+@media(min-width:701px){
+  #mob-menu-btn{display:none}
+  #mob-nav{display:none!important}
+}
+@media(max-width:600px){
+  .proj-grid,.tarot-grid,.cert-grid{grid-template-columns:1fr}
+  body{cursor:auto}
+  #cursor,#cursor-ring{display:none}
+  .hero-row{flex-direction:column;gap:1.5rem}
+}
+
+
+.lang-switcher{font-family:var(--mon);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-m);text-decoration:none;border:1px solid var(--border-glow);padding:.35rem .8rem;border-radius:2rem;transition:color .2s,border-color .2s,background .2s;white-space:nowrap}
+.lang-switcher:hover{color:var(--purple-s);border-color:var(--purple-s);background:var(--purple-dim)}
+</style>
+</head>
+<body>
+
+<div id="cursor">
+  <svg class="cstar" width="34" height="34" viewBox="0 0 20 20" fill="none">
+    <path d="M10 0 L11.4 8.6 L20 10 L11.4 11.4 L10 20 L8.6 11.4 L0 10 L8.6 8.6 Z" fill="rgba(200,215,255,.95)"/>
+    <circle cx="10" cy="10" r="2.2" fill="white"/>
+  </svg>
+</div>
+<div id="cursor-ring">
+  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+    <circle cx="18" cy="18" r="16" stroke="rgba(140,165,255,.45)" stroke-width=".7" stroke-dasharray="2 5"/>
+  </svg>
+</div>
+
+<canvas id="sf"></canvas>
+
+<!-- HEADER -->
+<header id="header">
+  <a class="header-logo" href="#hero">Laetitia Macar <span>✦</span></a>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#parcours-pro">Background</a>
+    <a href="#certifs">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a class="lang-switcher" href="index.html">FR&nbsp;/&nbsp;<strong>EN</strong></a>
+  </nav>
+  <button id="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- MOBILE DROPDOWN NAV -->
+<nav id="mob-nav">
+  <a href="#projects"><span>Projects</span></a>
+  <a href="#skills"><span>Skills</span></a>
+  <a href="#parcours-pro"><span>Background</span></a>
+  <a href="#certifs"><span>Certifications</span></a>
+  <a href="#contact"><span>Contact</span></a>
+  <a class="lang-switcher" href="index.html" style="border:none;border-bottom:1px solid var(--border);border-radius:0;padding:.9rem 0"><span>FR / EN</span></a>
+</nav>
+
+<!-- BACK TO TOP -->
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- PROJECT MODAL -->
+<div class="proj-overlay" id="proj-overlay">
+  <div class="proj-modal">
+    <span class="proj-modal-close" id="proj-modal-close">Close ×</span>
+    <div class="proj-carousel" id="proj-carousel">
+      <div class="proj-carousel-track" id="proj-carousel-track"></div>
+      <button class="proj-carousel-btn prev" id="proj-car-prev">‹</button>
+      <button class="proj-carousel-btn next" id="proj-car-next">›</button>
+      <div class="proj-carousel-dots" id="proj-carousel-dots"></div>
+    </div>
+    <div class="proj-modal-content">
+      <p class="proj-modal-num" id="pmod-num"></p>
+      <h3 class="proj-modal-title" id="pmod-title"></h3>
+      <p class="proj-modal-text" id="pmod-text"></p>
+      <div class="proj-tags" id="pmod-tags"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-tagline rev" id="hero-tagline"><span class="hero-static">I craft</span><span class="word-a" id="rotating-word">elegant interfaces</span></h1>
+        <div class="hero-intro rev">
+          <div class="hero-intro-inner">
+            <div class="hero-intro-title">Seeking a work-study placement for 2026–2027</div>
+            <div class="hero-intro-body">
+              <p class="hero-intro-lead">Portfolio of Laetitia Macar: web designer, developer and multilingual communicator in the CAWEB Master's programme at the University of Strasbourg.</p>
+              <span class="hero-intro-divider"></span>
+              <div class="hero-intro-row"><span class="hero-intro-icon">◈</span><span class="hero-intro-text">Fields of interest: UX/UI design · Web development · Project management · SEO.</span></div>
+              <div class="hero-intro-row"><span class="hero-intro-icon">ⴵ</span><span class="hero-intro-text">One-year work-study contract, ideally starting on October 1st, 2026.</span></div>
+              <div class="hero-intro-row"><span class="hero-intro-icon">𖡡</span><span class="hero-intro-text">Preferably in Alsace / Lorraine or Paris — open to all opportunities across France.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /hero-grid -->
+  </div><!-- /wrap -->
+</section>
+
+<!-- SCROLL DIVIDER -->
+<div class="moon-divider-vert" aria-hidden="true">
+  <div class="mdv-line"></div>
+  <div class="mdv-moon">
+    <div class="mdv-moon-inner"></div>
+    <span class="mdv-star top">✦</span>
+    <span class="mdv-star bot">✦</span>
+  </div>
+  <div class="mdv-line"></div>
+</div>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="wrap">
+    <p class="sec-label rev">I. Projects</p>
+    <h2 class="sec-title rev">My latest creations</h2>
+    <p class="sec-subtitle rev">Imagine, shape, bring to life.</p>
+    <div class="proj-grid rev">
+
+      <div class="proj-card" data-proj="0" tabindex="0">
+        <div class="proj-card-img"><img src="https://zupimages.net/up/26/14/opza.png" alt="Création de site web pour Wiccat"></div>
+        <div class="proj-card-body">
+          <p class="proj-card-num">January – June 2026</p>
+          <h3 class="proj-card-title">Website creation · Wiccat</h3>
+          <div class="proj-tags"><span class="proj-tag">Project management</span><span class="proj-tag">WordPress</span><span class="proj-tag">UX/UI</span><span class="proj-tag">Responsive</span><span class="proj-tag">SEO</span><span class="proj-tag">Visual identity</span></div>
+        </div>
+        <div class="proj-card-reveal"><span>Click to reveal ✦</span></div>
+      </div>
+
+      <div class="proj-card" data-proj="1" tabindex="0">
+        <div class="proj-card-img"><img src="https://zupimages.net/up/26/14/ntrt.png" alt="Maquette de landing page sur Figma"></div>
+        <div class="proj-card-body">
+          <p class="proj-card-num">2025</p>
+          <h3 class="proj-card-title">UX/UI Design</h3>
+          <div class="proj-tags"><span class="proj-tag">Figma</span><span class="proj-tag">Zoning</span><span class="proj-tag">Wireframing</span><span class="proj-tag">Prototyping</span></div>
+        </div>
+        <div class="proj-card-reveal"><span>Click to reveal ✦</span></div>
+      </div>
+
+      <div class="proj-card" data-proj="2" tabindex="0">
+        <div class="proj-card-img"><img src="https://zupimages.net/up/26/14/1cwk.png" alt="Communication pour le Snacking Healthy"></div>
+        <div class="proj-card-body">
+          <p class="proj-card-num">2024</p>
+          <h3 class="proj-card-title">Communication strategy · Snacking Healthy</h3>
+          <div class="proj-tags"><span class="proj-tag">Art direction</span><span class="proj-tag">Visual communication</span><span class="proj-tag">Branding</span><span class="proj-tag">Content creation</span></div>
+        </div>
+        <div class="proj-card-reveal"><span>Click to reveal ✦</span></div>
+      </div>
+
+      <div class="proj-card" data-proj="3" tabindex="0">
+        <div class="proj-card-img"><img src="https://zupimages.net/up/26/14/ine3.png" alt="Gestion de campagne pour le resto Tina"></div>
+        <div class="proj-card-body">
+          <p class="proj-card-num">2023</p>
+          <h3 class="proj-card-title">Campaign management · Golf de Tina Restaurant</h3>
+          <div class="proj-tags"><span class="proj-tag">Brief writing</span><span class="proj-tag">Production management</span><span class="proj-tag">Multi-channel communication</span></div>
+        </div>
+        <div class="proj-card-reveal"><span>Click to reveal ✦</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE 1 -->
+<div class="quote-section"><div class="wrap"><div class="quote-inner rev"><blockquote>The details are not the details.<br> They make the design.</blockquote><cite>Charles Eames</cite></div></div></div>
+
+<!-- ═══ HARD SKILLS ═══ -->
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-label rev">II. Technical skills</p>
+    <h2 class="sec-title rev">I master…</h2>
+    <p class="sec-subtitle rev">My tools</p>
+    <div class="sec-rule rev"></div>
+    <div class="skill-planet-grid rev" id="skill-planet-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ SOFT SKILLS ═══ -->
+<section id="softskills">
+  <div class="wrap">
+    <p class="sec-label rev">III. Soft skills</p>
+    <h2 class="sec-title rev">I am...</h2>
+    <p class="sec-subtitle rev">My strengths</p>
+    <div class="sec-rule rev"></div>
+    <div class="tarot-grid rev">
+
+      <div class="tc" role="button" tabindex="0">
+        <div class="tc-back">
+          <div class="tc-back-img"><div class="tc-back-img-zone"><img src="https://zupimages.net/up/26/14/gmw0.png" alt="Carte de tarot Le Magicien"></div></div>
+          <div class="tc-click">Click to reveal ✦</div>
+        </div>
+        <div class="tc-front">
+          <p class="tc-rom">Arcanum I</p>
+          <h3 class="tc-arc">The Magician</h3>
+          <p class="tc-sub">Creativity &amp; curiosity</p>
+          <p class="tc-desc">I explore every idea and perspective with an open mind, combining imagination and practicality to bring unique, inspiring concepts to life.</p>
+        </div>
+      </div>
+
+      <div class="tc" role="button" tabindex="0">
+        <div class="tc-back">
+          <div class="tc-back-img"><div class="tc-back-img-zone"><img src="https://zupimages.net/up/26/14/3vbe.png" alt="Carte de tarot La Justice"></div></div>
+          <div class="tc-click">Click to reveal ✦</div>
+        </div>
+        <div class="tc-front">
+          <p class="tc-rom">Arcanum XI</p>
+          <h3 class="tc-arc">Justice</h3>
+          <p class="tc-sub">Rigour &amp; analysis</p>
+          <p class="tc-desc">Every detail matters and nothing is left to chance: from project organisation to the final quality of my work, I ensure everything is thoughtful and consistent, never sacrificing clarity or precision.</p>
+        </div>
+      </div>
+
+      <div class="tc" role="button" tabindex="0">
+        <div class="tc-back">
+          <div class="tc-back-img"><div class="tc-back-img-zone"><img src="https://zupimages.net/up/26/14/ka0n.png" alt="Carte de tarot Le Chariot"></div></div>
+          <div class="tc-click">Click to reveal ✦</div>
+        </div>
+        <div class="tc-front">
+          <p class="tc-rom">Arcanum VII</p>
+          <h3 class="tc-arc">The Chariot</h3>
+          <p class="tc-sub">Autonomy &amp; adaptability</p>
+          <p class="tc-desc">I take the reins of my projects and move forward methodically, even in unfamiliar territory. Attentive and observant, I find effective solutions by turning obstacles into opportunities.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE 2 -->
+<div class="quote-section"><div class="wrap"><div class="quote-inner rev"><blockquote>The limits of my language<br> are the limits of my world.</blockquote><cite>Ludwig Wittgenstein</cite></div></div></div>
+
+<!-- ═══ PARCOURS PRO ═══ -->
+<section id="parcours-pro">
+  <div class="wrap">
+    <p class="sec-label rev">IV. Experience</p>
+    <h2 class="sec-title rev">Professional background</h2>
+    <p class="sec-subtitle rev">A path to the stars.</p>
+    <div class="sec-rule rev"></div>
+    <div class="const-canvas-wrap rev desktop-only" style="overflow:visible;padding:40px 60px">
+      <canvas class="const-c" id="cexp" height="440"></canvas>
+    </div>
+    <div class="parc-list mobile-only rev" id="parc-exp-list"></div>
+  </div>
+</section>
+
+<!-- ═══ PARCOURS ACADÉMIQUE ═══ -->
+<section id="parcours-edu" style="padding-top:2rem">
+  <div class="wrap">
+    <p class="sec-label rev">V. Education</p>
+    <h2 class="sec-title rev">Academic background</h2>
+    <p class="sec-subtitle rev">A journey towards knowledge.</p>
+    <div class="sec-rule rev"></div>
+    <div class="const-canvas-wrap rev desktop-only" style="overflow:visible;padding:40px 60px">
+      <canvas class="const-c" id="cedu" height="440"></canvas>
+    </div>
+    <div class="parc-list mobile-only rev" id="parc-edu-list"></div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certifs">
+  <div class="wrap">
+    <p class="sec-label rev">VI. Certifications</p>
+    <h2 class="sec-title rev">Accredited skills</h2>
+    <p class="sec-subtitle rev">Validated knowledge, acquired powers.</p>
+    <div class="sec-rule rev"></div>
+    <div class="cert-grid rev">
+
+      <div class="cert-card">
+        <p class="cert-icon">Digital Marketing</p>
+        <p class="cert-name">Fundamentals of Digital Marketing</p>
+        <p class="cert-full">Google</p>
+        <p class="cert-score">Certified</p>
+        <p class="cert-year">February 2026</p>
+        <p class="cert-code">Credential ID: 428639779</p>
+      </div>
+
+      <div class="cert-card">
+        <p class="cert-icon">French orthography (expert level)</p>
+        <p class="cert-name">Voltaire Certificate</p>
+        <p class="cert-full">Projet Voltaire</p>
+        <p class="cert-score">931 / 1000</p>
+        <p class="cert-year">October 2022</p>
+        <p class="cert-code">Credential ID: HTKGUGV</p>
+      </div>
+
+      <div class="cert-card">
+        <p class="cert-icon">Digital skills</p>
+        <p class="cert-name">Certification PIX</p>
+        <p class="cert-full">PIX</p>
+        <p class="cert-score">476</p>
+        <p class="cert-year">October 2022</p>
+        <p class="cert-code">Credential ID: P-CD34C2WG</p>
+      </div>
+
+      <div class="cert-card">
+        <p class="cert-icon">Bilingual English (C2 level)</p>
+        <p class="cert-name">Cambrdige Certificate in Advanced English</p>
+        <p class="cert-full">University of Cambridge</p>
+        <p class="cert-score">200 / 210</p>
+        <p class="cert-year">December 2021</p>
+        <p class="cert-code">Credential ID: B6922945</p>
+      </div>
+
+      <div class="cert-card coming">
+        <span class="cert-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+        <p class="cert-icon">Computer-assisted translation</p>
+        <p class="cert-name">Certification Trados</p>
+        <p class="cert-full">RWS</p>
+        <p class="cert-score">Coming soon</p>
+        <p class="cert-year">May 2026</p>
+      </div>
+
+      <div class="cert-card coming">
+        <span class="cert-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+        <p class="cert-icon">Graphic design</p>
+        <p class="cert-name">Adobe Illustrator Mega Course</p>
+        <p class="cert-full">Udemy | Alan Ayoubi</p>
+        <p class="cert-score">Coming soon</p>
+        <p class="cert-year">2026</p>
+      </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="moon-divider-vert" aria-hidden="true">
+  <div class="mdv-line"></div>
+  <div class="mdv-moon">
+    <div class="mdv-moon-inner"></div>
+    <span class="mdv-star top">✦</span>
+    <span class="mdv-star bot">✦</span>
+  </div>
+  <div class="mdv-line"></div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="wrap">
+    <p class="sec-label rev">VII. Contact</p>
+    <div class="contact-bottom rev">
+      <div class="contact-left">
+        <h2 class="contact-heading"><span>Let's create</span><br>together.</h2>
+        <p class="contact-sub">I am seeking a work-study placement from October 2026 in UX/UI design, web development, project management or SEO.<br><br>If my profile interests you, I would be delighted to discuss the opportunities you offer!<br></p>
+        <div class="btn-row">
+        <a href="mailto:macarlaetitia@gmail.com" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            Contact me
+          </a>
+          <a href="https://raw.githubusercontent.com/laetitia-macar/Portfolio/main/CV_2026%20_Laetitia_Macar.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            Take a look at my resume
+          </a>
+        </div>
+      </div>
+      <div class="contact-social-box">
+        <p class="contact-box-title">Elsewhere</p>
+        <a href="https://www.linkedin.com/in/laetitia-macar/" target="_blank" rel="noopener">
+          <svg class="csicon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/laetitia-macar" target="_blank" rel="noopener">
+          <svg class="csicon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <span>© Laetitia Macar · <span id="yr"></span></span>
+      <span>Version 1.1</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function() {
+"use strict";
+
+/* ── CURSOR ─────────────────────────────────────────── */
+var cur = document.getElementById('cursor');
+var cring = document.getElementById('cursor-ring');
+var mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; });
+(function ac(){
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
+  cring.style.left=rx+'px'; cring.style.top=ry+'px';
+  requestAnimationFrame(ac);
+})();
+
+/* ── STARFIELD ──────────────────────────────────────── */
+var sfEl=document.getElementById('sf'), sfc=sfEl.getContext('2d'), stars=[];
+function rsf(){ sfEl.width=innerWidth; sfEl.height=innerHeight; }
+function isf(){
+  stars=[];
+  var n=Math.floor(innerWidth*innerHeight/1800);
+  for(var i=0;i<n;i++){
+    var big=Math.random()<0.06;
+    var huge=Math.random()<0.012;
+    stars.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+      r:huge?Math.random()*2.8+1.8:big?Math.random()*1.8+0.9:Math.random()*0.9+0.2,
+      sp:Math.random()*0.12+0.02,o:Math.random()*0.55+0.35,
+      t:Math.random()*Math.PI*2,ts:big?0.018+Math.random()*0.012:0.012+Math.random()*0.008,
+      big:big||huge,huge:huge});
+  }
+}
+(function dsf(){
+  sfc.clearRect(0,0,sfEl.width,sfEl.height);
+  for(var i=0;i<stars.length;i++){
+    var s=stars[i]; s.t+=s.ts; s.y-=s.sp;
+    if(s.y<0){s.y=sfEl.height;s.x=Math.random()*innerWidth;}
+    var a=s.o*(0.35+0.65*Math.sin(s.t));
+    if(s.big){
+      sfc.save(); sfc.translate(s.x,s.y);
+      var l=s.huge?s.r*4:s.r*3;
+      sfc.strokeStyle='rgba(160,180,255,'+(a*0.7)+')'; sfc.lineWidth=s.huge?0.8:0.5;
+      sfc.beginPath();sfc.moveTo(-l,0);sfc.lineTo(l,0);sfc.stroke();
+      sfc.beginPath();sfc.moveTo(0,-l);sfc.lineTo(0,l);sfc.stroke();
+      if(s.huge){
+        var l2=l*0.65;
+        sfc.rotate(Math.PI/4);
+        sfc.strokeStyle='rgba(160,180,255,'+(a*0.4)+')'; sfc.lineWidth=0.4;
+        sfc.beginPath();sfc.moveTo(-l2,0);sfc.lineTo(l2,0);sfc.stroke();
+        sfc.beginPath();sfc.moveTo(0,-l2);sfc.lineTo(0,l2);sfc.stroke();
+      }
+      sfc.restore();
+    }
+    sfc.beginPath();sfc.arc(s.x,s.y,s.r,0,Math.PI*2);
+    sfc.fillStyle='rgba(160,185,255,'+a+')';sfc.fill();
+  }
+  requestAnimationFrame(dsf);
+})();
+rsf(); isf();
+window.addEventListener('resize',function(){rsf();isf();});
+
+/* ── CURSOR HOVER ───────────────────────────────────── */
+document.querySelectorAll('a,button,.proj-card,.tc,.cert-card,[tabindex]').forEach(function(el){
+  el.addEventListener('mouseenter',function(){document.body.classList.add('hovering');});
+  el.addEventListener('mouseleave',function(){document.body.classList.remove('hovering');});
+});
+
+/* ── HEADER SCROLL ──────────────────────────────────── */
+var hdr=document.getElementById('header');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>60) hdr.classList.add('scrolled');
+  else hdr.classList.remove('scrolled');
+  var btt=document.getElementById('btt');
+  if(window.scrollY>400) btt.classList.add('visible');
+  else btt.classList.remove('visible');
+});
+
+/* ── HERO ROTATING TEXT — fade slide ─────────────────── */
+var words=['elegant interfaces','intuitive experiences','immersive worlds'];
+var wi=0, rw=document.getElementById('rotating-word');
+rw.style.transition='opacity .4s ease, transform .4s ease';
+setInterval(function(){
+  wi=(wi+1)%words.length;
+  rw.style.opacity='0'; rw.style.transform='translateY(10px)';
+  setTimeout(function(){ rw.textContent=words[wi]; rw.style.opacity='1'; rw.style.transform='translateY(0)'; },420);
+},3000);
+
+/* ── PROJECT MODAL ──────────────────────────────────── */
+var projData=[
+  {num:'January – June 2026',title:'Website creation · Wiccat',
+   imgs:['https://zupimages.net/up/26/14/avcm.png','https://zupimages.net/up/26/14/mbjz.png','https://zupimages.net/up/26/14/v8f6.png'],imgAlt:'Website creation for Wiccat',
+   text:'\nContext: Wiccat is a cat café with a mystical, warm atmosphere. The challenge is to translate this unique universe into a cohesive web experience while meeting a concrete need: letting visitors get information quickly and book their spot in a few clicks.\n\nApproach: As project manager, I oversee and contribute to every stage of the build, from needs analysis to launch. This covers UX/UI design, graphic design, SEO copywriting, English localisation and web development. Special attention is paid to content hierarchy, visual consistency and accessibility, ensuring a navigation that is both immersive and intuitive.\n\nExpected outcome: A multilingual, polished, high-performance, SEO-optimised site designed to offer a seamless experience on all devices, with a client handover session at delivery.',
+   tags:['Project management','WordPress','UX/UI design','Responsive integration','SEO copywriting','Visual identity']},
+  {num:'2025',title:'UX/UI Design',
+   imgs:['https://zupimages.net/up/26/14/b1vw.png','https://zupimages.net/up/26/14/lz5p.png','https://github.com/laetitia-macar/Portfolio/raw/main/Projet_Conception_UX_UI.mp4'],imgAlt:'Landing page mockup in Figma',
+   text:'\nContext: As part of the CAWEB Master\'s programme, we were asked to explore Figma through the design of a fictional landing page.\n\nApproach: We followed the key steps of a real project: initial zoning, wireframe, interactive prototype.\n\nOutcome: A polished prototype documenting each stage of the UX/UI process and demonstrating mastery of both the methodology and the software.',
+   tags:['Figma','Zoning','Wireframing','Prototyping']},
+  {num:'2024',title:'Communication strategy · Snacking Healthy (Saint-Honoré)',
+   imgs:['https://zupimages.net/up/26/14/isqp.png','https://zupimages.net/up/26/14/fu96.png','https://zupimages.net/up/26/14/vhz9.png','https://zupimages.net/up/26/14/mgxi.png'],imgAlt:'Communication for Snacking Healthy',
+   text:'\nContext: Saint-Honoré, a bakery chain based in Nouméa (New Caledonia), wanted to develop a distinct communication strategy for Snacking Healthy, a point of sale dedicated to healthy eating.\n\nApproach: Design of a digital communication strategy consistent with the brand identity while giving it its own personality. This project focused on promotional posts for the poké bowl and fresh juice ranges, with careful attention to product staging and ingredient showcasing through attractive visual compositions.\n\nOutcome: A series of social media posts designed to boost the concept\'s visibility and attract wellness-conscious customers, successfully increasing footfall at the point of sale.',
+   tags:['Art direction','Visual communication','Branding','Content creation']},
+  {num:'2023',title:'Campaign management · Golf International de Tina Restaurant',
+   imgs:['https://zupimages.net/up/26/14/83sy.png','https://zupimages.net/up/26/14/wy46.png'],imgAlt:'Campaign management for Tina restaurant',
+   text:'\nContext: The Golf International de Tina restaurant (Nouméa, New Caledonia) wanted to re-engage golfers by offering exclusive perks, following a notable decline in their presence.\n\nApproach: Management of a dedicated marketing campaign: writing briefs for the design team, liaising with partners and suppliers (wood engraving specialists, signage and advertising providers), tracking deadlines and verifying deliverable compliance. Consistency was ensured across all formats: 1080×1080 social media visuals (Facebook & Instagram), website banner, golf cart stickers, partner gift vouchers, A5 double-sided table cards, A4 poster, A2 poster, 4×3 roadside billboard, and wood-engraved coaster design.\n\nOutcome: A well-coordinated campaign delivering consistent, on-target materials that effectively contributed to bringing customers back.',
+   tags:['Brief writing','Production management','Multi-stakeholder coordination','Multi-channel communication']}
+];
+var pov=document.getElementById('proj-overlay'), pclose=document.getElementById('proj-modal-close');
+var carSlide=0, carTotal=0;
+function carGo(n){
+  carSlide=((n%carTotal)+carTotal)%carTotal;
+  var carouselEl=document.getElementById('proj-carousel');
+  var slideWidth=carouselEl ? carouselEl.offsetWidth : 0;
+  document.getElementById('proj-carousel-track').style.transform='translateX(-'+(carSlide*slideWidth)+'px)';
+  document.querySelectorAll('.proj-carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===carSlide);});
+  document.querySelectorAll('.proj-carousel-slide video').forEach(function(v){v.pause();});
+}
+function openPO(idx){
+  var d=projData[idx];
+  document.getElementById('pmod-num').textContent=d.num;
+  document.getElementById('pmod-title').textContent=d.title;
+  document.getElementById('pmod-text').textContent=d.text;
+  var tc=document.getElementById('pmod-tags'); tc.innerHTML='';
+  d.tags.forEach(function(t){ var sp=document.createElement('span'); sp.className='proj-tag'; sp.textContent=t; tc.appendChild(sp); });
+  var track=document.getElementById('proj-carousel-track');
+  var dots=document.getElementById('proj-carousel-dots');
+  track.innerHTML=''; dots.innerHTML='';
+  var imgs=d.imgs||[d.img]; imgs=imgs.filter(Boolean);
+  carTotal=imgs.length||1;
+  if(imgs.length){
+    imgs.forEach(function(src,i){
+      var slide=document.createElement('div'); slide.className='proj-carousel-slide';
+      var isVideo=/\.(mp4|webm|ogg)(\?|$)/i.test(src);
+      if(isVideo){
+        var vid=document.createElement('video');
+        vid.src=src; vid.controls=true; vid.preload='metadata'; vid.playsInline=true;
+        slide.appendChild(vid);
+      } else {
+        var im=document.createElement('img'); im.src=src; im.alt=d.imgAlt||'';
+        slide.appendChild(im);
+      }
+      track.appendChild(slide);
+      var dot=document.createElement('div'); dot.className='proj-carousel-dot'+(i===0?' active':'');
+      dot.addEventListener('click',function(){carGo(i);}); dots.appendChild(dot);
+    });
+  } else {
+    var slide=document.createElement('div'); slide.className='proj-carousel-slide';
+    slide.innerHTML='<span style="font-family:var(--mon);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-d)">Illustration à venir</span>';
+    track.appendChild(slide);
+  }
+  var prevBtn=document.getElementById('proj-car-prev'), nextBtn=document.getElementById('proj-car-next');
+  prevBtn.style.display=nextBtn.style.display=carTotal>1?'flex':'none';
+  carSlide=0; track.style.transform='';
+  pov.classList.add('open');
+}
+function closePO(){pov.classList.remove('open');document.querySelectorAll('.proj-carousel-slide video').forEach(function(v){v.pause();});}
+document.getElementById('proj-car-prev').addEventListener('click',function(e){e.stopPropagation();carGo(carSlide-1);});
+document.getElementById('proj-car-next').addEventListener('click',function(e){e.stopPropagation();carGo(carSlide+1);});
+document.querySelectorAll('.proj-card').forEach(function(card){
+  card.addEventListener('click',function(){openPO(parseInt(card.dataset.proj));});
+  card.addEventListener('keydown',function(e){if(e.key==='Enter')openPO(parseInt(card.dataset.proj));});
+});
+pclose.addEventListener('click',closePO);
+pov.addEventListener('click',function(e){if(e.target===pov)closePO();});
+
+/* ── TAROT FLIP ─────────────────────────────────────── */
+document.querySelectorAll('.tc').forEach(function(card){
+  function tog(){card.classList.toggle('fl');}
+  card.addEventListener('click',tog);
+  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}});
+});
+
+/* ── CONSTELLATION ──────────────────────────────────── */
+function makeConst(canvasId, tipId, nameId, metaId, descId, nodes, edges){
+  var cv=document.getElementById(canvasId);
+  if(!cv) return;
+  var ctx=cv.getContext('2d'), DPR=window.devicePixelRatio||1;
+  var W=0, H=440, hovN=-1, ct=0;
+
+  function resize(){
+    var r=cv.parentElement.getBoundingClientRect(); W=r.width||500;
+    cv.style.width=W+'px'; cv.style.height=H+'px';
+    cv.width=W*DPR; cv.height=H*DPR; ctx.scale(DPR,DPR);
+  }
+  function np(n){return{x:n.rx*W,y:n.ry*H};}
+  function drawSparkle(x,y,size,col,rot){
+    ctx.save(); ctx.translate(x,y); ctx.rotate(rot);
+    /* 4-pointed star */
+    ctx.beginPath();
+    for(var k=0;k<8;k++){
+      var a=k*Math.PI/4, r2=k%2===0?size:size*0.38;
+      k===0?ctx.moveTo(Math.cos(a)*r2,Math.sin(a)*r2):ctx.lineTo(Math.cos(a)*r2,Math.sin(a)*r2);
+    }
+    ctx.closePath();
+    ctx.fillStyle=col; ctx.fill();
+    /* glow */
+    var g=ctx.createRadialGradient(0,0,0,0,0,size*2.5);
+    g.addColorStop(0,col.replace('1)','0.25)')); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.beginPath();ctx.arc(0,0,size*2.5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.restore();
+  }
+  function draw(){
+    ct++;
+    ctx.clearRect(0,0,W,H);
+    /* broken dashed white lines */
+    edges.forEach(function(e2){
+      var pa=np(nodes[e2[0]]),pb=np(nodes[e2[1]]);
+      ctx.save();
+      ctx.setLineDash([6,5,2,5]);
+      ctx.beginPath();
+      /* broken line: go through 2 intermediate points for zig-zag */
+      var dx=pb.x-pa.x, dy=pb.y-pa.y;
+      var mx1=pa.x+dx*0.33+dy*0.06, my1=pa.y+dy*0.33-dx*0.06;
+      var mx2=pa.x+dx*0.66-dy*0.06, my2=pa.y+dy*0.66+dx*0.06;
+      ctx.moveTo(pa.x,pa.y);
+      ctx.lineTo(mx1,my1);
+      ctx.lineTo(mx2,my2);
+      ctx.lineTo(pb.x,pb.y);
+      ctx.strokeStyle='rgba(255,255,255,0.45)'; ctx.lineWidth=1.8; ctx.stroke();
+      ctx.restore();
+    });
+    /* nodes as sparkles */
+    nodes.forEach(function(n,ni){
+      var p=np(n),x=p.x,y=p.y,isH=(hovN===ni);
+      var sz=n.main?(isH?20:16):(isH?14:11);
+      var col=isH?'rgba(255,255,255,1)':n.main?'rgba(180,200,255,0.95)':'rgba(190,165,255,0.75)';
+      drawSparkle(x,y,sz,col,ct*0.008*(ni%2?1:-1));
+      /* label */
+      var ly=n.labelBelow?y+sz+18:y-sz-14;
+      ctx.fillStyle=isH?'#ffffff':'#ddd8f5';
+      ctx.font=isH?"600 15px 'Cinzel',serif":"500 13px 'Cinzel',serif";
+      ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(n.label,x,ly);
+      ctx.fillStyle='#a8a0c8';ctx.font="400 11px 'DM Mono',monospace";
+      ctx.fillText(n.year,x,n.labelBelow?ly+17:ly-16);
+    });
+    requestAnimationFrame(draw);
+  }
+  cv.addEventListener('mousemove',function(e){
+    var r=cv.getBoundingClientRect(),mx2=e.clientX-r.left,my2=e.clientY-r.top; hovN=-1;
+    nodes.forEach(function(n,i){var p=np(n);if(Math.hypot(mx2-p.x,my2-p.y)<22)hovN=i;});
+    cv.style.cursor=hovN>=0?'pointer':'default';
+  });
+  cv.addEventListener('mouseleave',function(){hovN=-1;});
+  resize(); window.addEventListener('resize',resize); draw();
+}
+
+makeConst('cexp','ctip-exp','ctip-exp-name','ctip-exp-meta','ctip-exp-desc',[
+  {label:'Work-study intern',   year:'2026–2027',sub:'What if it were with you?',rx:0.88,ry:0.50,main:true, labelBelow:false},
+  {label:'Web project manager', year:'2026',sub:'Wiccat | France',rx:0.75,ry:0.25,main:true, labelBelow:false},
+  {label:'Translator',           year:'2023',sub:'Blue Whale Global Media (translation agency) | Netherlands',rx:0.55,ry:0.18,main:false,labelBelow:false},
+  {label:'Community Manager',   year:'2022–2024',sub:'Adpulse (marketing agency) | New Caledonia',rx:0.38,ry:0.60,main:true, labelBelow:true},
+  {label:'Consultant',           year:'2022',sub:'Latin America New Zealand Business Council | New Zealand',rx:0.20,ry:0.35,main:false,labelBelow:false},
+  {label:'IT Assistant',              year:'2021–2022',sub:'University of New Caledonia',rx:0.10,ry:0.55,main:false,labelBelow:true}
+],[[0,1],[1,2],[2,3],[3,4],[4,5],[1,3]]);
+
+makeConst('cedu','ctip-edu','ctip-edu-name','ctip-edu-meta','ctip-edu-desc',[
+  {label:'CAWEB Master\'s',      year:'2025–2027',sub:'University of Strasbourg',rx:0.88,ry:0.38,main:true, labelBelow:false},
+  {label:'International mobility',year:'2023',   sub:'Australian National University',rx:0.68,ry:0.65,main:false,labelBelow:true},
+  {label:'E-mobility',            year:'2022',    sub:'University of Auckland',rx:0.50,ry:0.22,main:false,labelBelow:false},
+  {label:'Bachelor of Arts in Applied Foreign Languages', year:'2020–2023',sub:'University of New Caledonia',rx:0.28,ry:0.50,main:true, labelBelow:true},
+  {label:'Scientific Baccalaureate',year:'2019',     sub:'Lycée du Mont-Dore · New Caledonia',rx:0.10,ry:0.48,main:false,labelBelow:false}
+],[[0,1],[1,3],[2,3],[3,4],[0,2]]);
+
+/* ── MOBILE PARCOURS CARDS ─────────────────────────── */
+(function(){
+  function makeParcCards(listId, nodes){
+    var list=document.getElementById(listId);
+    if(!list) return;
+    nodes.forEach(function(n){
+      var card=document.createElement('div');
+      card.className='parc-card';
+      card.innerHTML=
+        '<div class="parc-card-top">'+
+          '<span class="parc-card-dot'+(n.main?' main':'')+'"></span>'+
+          '<span class="parc-card-label">'+n.label+'</span>'+
+          '<span class="parc-card-year">'+n.year+'</span>'+
+        '</div>'+
+        (n.sub?'<p class="parc-card-sub">'+n.sub+'</p>':'')+
+        (n.desc?'<p class="parc-card-desc">'+n.desc+'</p>':'');
+      list.appendChild(card);
+    });
+  }
+  makeParcCards('parc-exp-list',[
+    {label:'Work-study intern',year:'2026–2027',sub:'___ · France',desc:'What if it were with you?',main:true},
+    {label:'Web project manager',year:'2026',sub:'Wiccat · Strasbourg, France',desc:'✦ Creation of a multilingual website for the Wiccat cat café.<br>✦ Project management: needs analysis, planning and monitoring.<br>✦ UX/UI design, graphic design, SEO copywriting and web development.<br>✦ Coordination with client and contributors.<br>✦ Launch, optimisation and client handover.',main:true},
+    {label:'Translator',year:'2023',sub:'Blue Whale Global Media · Delft, Netherlands',desc:'✦ One-off translations, proofreading and transcriptions for various sporting events.<br>✦ Notable projects: 2023 FIFA Women\'s World Cup & 2025 FIFA Club World Cup draw.',main:false},
+    {label:'Community Manager',year:'2022-2024',sub:'Adpulse (marketing agency) · Nouméa, New Caledonia',desc:'✦ Independent management of a 25-client portfolio.<br>✦ Developing social media strategies (editorial planning, content writing, scheduling, moderation).<br>✦ Managing sponsored campaign budgets.<br>✦ Supporting one-off campaigns.<br>✦ Reporting and performance analysis.<br>✦ Competitive and technology watch.',main:true},
+    {label:'Consultant',year:'2022',sub:'Latin America New Zealand Business Council · Auckland, New Zealand',desc:'✦ Created a general annual report template for the organisation.',main:false},
+    {label:'IT Assistant',year:'2021–2022',sub:'University of New Caledonia · Nouméa, New Caledonia',desc:'✦ Digital education support for DUNE (Digital Education Development).<br>✦ IT maintenance and equipment management for the DNSI (Digital & Information Systems Directorate).',main:false}
+  ]);
+  makeParcCards('parc-edu-list',[
+    {label:'CAWEB Master\'s',year:'2025–2027',sub:'University of Strasbourg',desc:'Master\'s in Multilingual Web Communication:<br>✦ Website creation: project management, UX/UI design, CMS development using professional tools.<br>✦ Visual communication: graphic design (DTP), video, motion design.<br>✦ Digital marketing & multilingual communication: content marketing, web/SEO copywriting, translation, localisation, community management.',main:true},
+    {label:'International mobility',year:'2023',sub:'Australian National University',desc:'On-campus Erasmus semester in Canberra.<br>✦ International business, international strategic management, strategic marketing.',main:false},
+    {label:'E-mobility',year:'2022',sub:'University of Auckland',desc:'Remote Erasmus semester.<br>✦ Academic business English, communication, technology & culture, global economics, marketing fundamentals.',main:false},
+    {label:'Bachelor of Arts in Applied Foreign Languages',year:'2020–2023',sub:'University of New Caledonia',desc:'Bachelor of Arts in Applied Foreign Languages (English–Spanish), International Business track.<br>✦ Multidisciplinary programme combining in-depth mastery of two languages with economics, law, marketing and international management.',main:true},
+    {label:'Scientific Baccalaureate',year:'2019',sub:'Lycée du Mont-Dore · New Caledonia',desc:'✦ Advanced life & earth sciences, physics-chemistry and mathematics.<br>✦ Methodological rigour and analytical thinking.<br>✦ European class: history and geography taught in English.',main:false}
+  ]);
+})();
+
+/* ── SKILL PLANET CARDS ─────────────────────────────── */
+(function(){
+  var grid=document.getElementById('skill-planet-grid');
+  if(!grid) return;
+
+  /* ── DATA — edit here ── */
+  var planets=[
+    {name:'Design',              color:'#9db0f8',
+     moons:['Adobe Photoshop','Adobe InDesign','Adobe Illustrator','Canva','Figma','Affinity']},
+    {name:'Web development',    color:'#6a9ef5',
+     moons:['HTML','CSS','PHP','JavaScript','Visual Studio Code','WordPress']},
+    {name:'Project management', color:'#7ab0f0',
+     moons:['Agile method','Waterfall method','Planning','Brief writing','Coordination','Trello','Miro']},
+    {name:'Digital marketing',  color:'#8fa8f5',
+     moons:['Communication strategy','Community management','Social ads','Storytelling','SEO']},
+    {name:'Multilingual',        color:'#a0b8ff',
+     moons:['Writing quality','Translation','Localisation','English C2','Spanish B2']},
+    {name:'Artificial intelligence',color:'#b0c0ff',
+     moons:['Claude','ChatGPT','Gemini']}
+  ];
+
+  function makeSVG(color, moonCount){
+    var W=140,H=140,cx=W/2,cy=H/2;
+    var planetR=16;
+    var orbits=[];
+    if(moonCount<=3) orbits=[38];
+    else if(moonCount<=5) orbits=[34,54];
+    else orbits=[30,48,66];
+    var svgParts=[];
+    /* orbits */
+    orbits.forEach(function(r){
+      svgParts.push('<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="rgba(140,165,255,0.28)" stroke-width="0.8" stroke-dasharray="3 3"/>');
+    });
+    /* planet glow */
+    svgParts.push('<circle cx="'+cx+'" cy="'+cy+'" r="'+(planetR+8)+'" fill="'+color+'" opacity="0.1"/>');
+    /* planet */
+    svgParts.push('<circle cx="'+cx+'" cy="'+cy+'" r="'+planetR+'" fill="'+color+'" opacity="0.88"/>');
+    svgParts.push('<circle cx="'+(cx-4)+'" cy="'+(cy-4)+'" r="5" fill="white" opacity="0.18"/>');
+    /* moons */
+    var placed=0;
+    orbits.forEach(function(orb){
+      var perOrb=moonCount<=3?moonCount:(orbits.length===2?(placed===0?Math.ceil(moonCount/2):Math.floor(moonCount/2)):Math.ceil(moonCount/orbits.length));
+      for(var m=0;m<perOrb&&placed<moonCount;m++){
+        var a=m*(Math.PI*2/perOrb)-Math.PI/2;
+        var mx2=cx+Math.cos(a)*orb, my2=cy+Math.sin(a)*orb;
+        svgParts.push('<circle cx="'+mx2.toFixed(1)+'" cy="'+my2.toFixed(1)+'" r="4.5" fill="'+color+'" opacity="0.7"/>');
+        placed++;
+      }
+    });
+    return '<svg class="spc-diagram" viewBox="0 0 '+W+' '+H+'" fill="none" xmlns="http://www.w3.org/2000/svg">'+svgParts.join('')+'<'+'/svg>';
+  }
+
+  planets.forEach(function(p){
+    var card=document.createElement('div');
+    card.className='skill-planet-card rev';
+    var moonsHTML=p.moons.map(function(m){return'<span class="spc-moon">'+m+'</span>';}).join('');
+    card.innerHTML=makeSVG(p.color,p.moons.length)+'<p class="spc-name">'+p.name+'</p><div class="spc-moons">'+moonsHTML+'</div>';
+    grid.appendChild(card);
+  });
+})();
+
+/* ── MILKY WAY — band only, no stars ────────────────── */
+document.querySelectorAll('.quote-section').forEach(function(qs){
+  var mwc=document.createElement('canvas');
+  mwc.className='quote-mw'; qs.insertBefore(mwc,qs.firstChild);
+  var mc=mwc.getContext('2d');
+  function drawMW(){
+    var W=qs.offsetWidth,H=qs.offsetHeight;
+    mwc.width=W; mwc.height=H; mc.clearRect(0,0,W,H);
+    var band=mc.createLinearGradient(0,H*0.2,W,H*0.7);
+    band.addColorStop(0,'rgba(80,100,200,0)');
+    band.addColorStop(0.3,'rgba(80,100,200,0.05)');
+    band.addColorStop(0.5,'rgba(100,120,220,0.09)');
+    band.addColorStop(0.7,'rgba(80,100,200,0.05)');
+    band.addColorStop(1,'rgba(80,100,200,0)');
+    mc.fillStyle=band; mc.fillRect(0,0,W,H);
+  }
+  drawMW(); window.addEventListener('resize',drawMW);
+});
+
+
+
+
+/* ── MOBILE NAV ───────────────────────────────────────── */
+(function(){
+  var btn=document.getElementById('mob-menu-btn');
+  var nav=document.getElementById('mob-nav');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    });
+  });
+})();
+
+/* ── SCROLL REVEAL ──────────────────────────────────── */
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');}});},{threshold:0.15});
+document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+
+/* ── YEAR ────────────────────────────�
+*/
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
